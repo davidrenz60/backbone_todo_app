@@ -1,0 +1,232 @@
+@import "whitespace-reset.css";
+body {
+  font: 300 16px Helvetica, Arial, sans-serif;
+}
+main {
+  margin-left: 335px;
+}
+h2 {
+  font-size: 21px;
+  font-weight: 300;
+}
+a {
+  text-decoration: none;
+}
+.circle {
+  background: #6b7292;
+  color: #b2b5c3;
+  border-radius: 18px;
+  padding: 0 5px;
+  font-size: 14px;
+}
+.button {
+  font-size: 16px;
+  display: inline-block;
+  color: #fff;
+  width: 185px;
+  height: 36px;
+  line-height: 36px;
+  background: #148fd5;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#sidebar {
+  float: left;
+  width: 335px;
+  height: 100vh;
+  margin: 0 0 0 -335px;
+  padding: 78px 0 0 0;
+  background: #464f77;
+  color: #b2b5c3;
+}
+#sidebar li {
+  overflow: hidden;
+  padding: 12px 0;
+  cursor: pointer;
+}
+#sidebar .active {
+  background: #383f5f;
+  color: #fff;
+}
+#sidebar .active .circle {
+  background: #148fd5;
+  color: #fff;
+}
+#sidebar h3 {
+  margin: 0 0 0 100px;
+  padding: 0 0 0 35px;
+  height: 26px;
+  color: #fff;
+  float: left;
+  font-size: 19px;
+  font-weight: 300;
+}
+#sidebar h3 + p {
+  position: relative;
+  top: 3px;
+  float: right;
+  margin: 0 20px 0 0;
+}
+#sidebar p {
+  float: left;
+  margin: 0 0 0 135px;
+}
+#sidebar p + p {
+  float: right;
+  margin: 0 20px 0 0;
+}
+#all-todos {
+  margin: 0 0 50px 0;
+}
+#all-todos h3 {
+  background: url("/images/icon-todos.png") 0 0 no-repeat;
+}
+#completed-todos h3 {
+  background: url("/images/icon-menu.png") 0 0 no-repeat;
+}
+#content {
+  position: relative;
+}
+#todos {
+  margin: 70px 50px 0 30px;
+}
+#todos h2 {
+  margin: 0 0 35px 0;
+}
+#todos h2 span {
+  margin: 0 0 0 20px;
+}
+#todos h2 span.active {
+  position: relative;
+  bottom: 2px;
+  background: #148fd5;
+  color: #fff;
+}
+#todos a {
+  color: #148fd5;
+  background: url("/images/icon-add.png") 0 40% no-repeat;
+  padding: 0 0 0 30px;
+}
+#todos ul {
+  margin: 20px 0 0 0;
+}
+#todos ul li {
+  border-top: 1px solid #e7e7e7;
+  overflow: hidden;
+  padding: 15px 0;
+}
+#todos ul li:hover {
+  background: rgba(0,123,255,0.29);
+}
+#todos ul p.todo {
+  float: left;
+  background: url("/images/icon-checkbox.png") 0 0 no-repeat;
+  padding: 0 0 0 30px;
+  cursor: pointer;
+}
+#todos ul p.todo + p {
+  float: right;
+  background: url("/images/icon-trash.png") 0 0 no-repeat;
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+}
+#todos ul p.todo.completed {
+  background: url("/images/icon-complete.png") 0 0 no-repeat;
+  text-decoration: line-through;
+  color: #b3b3b3;
+}
+#modal {
+  display: none;
+  position: absolute;
+  top: 105px;
+  left: 5%;
+  z-index: 1;
+}
+#modal form {
+  width: 500px;
+  background: #fff;
+  padding: 35px;
+}
+#modal form .form-row {
+  padding: 0 0 25px 0;
+}
+#modal form .form-row label {
+  width: 20%;
+  float: left;
+  padding: 9px 0 0 0;
+}
+#modal form .form-row span {
+  all: initial;
+}
+#modal input[type="text"] {
+  box-sizing: border-box;
+  font: 300 16px Helvetica, Arial, sans-serif;
+  width: 80%;
+  height: 35px;
+  padding: 0 10px;
+}
+#modal select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font: 300 16px Helvetica, Arial, sans-serif;
+  width: 124px;
+  height: 35px;
+  background: url("/images/select-arrows.png") 95% 50% no-repeat;
+  border-radius: 0;
+  padding: 0 10px;
+}
+#modal textarea {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  box-sizing: border-box;
+  font: 300 16px Helvetica, Arial, sans-serif;
+  width: 80%;
+  height: 145px;
+  vertical-align: top;
+  resize: none;
+  padding: 8px 10px;
+}
+#modal .button + .button {
+  margin-left: 19px;
+}
+#modal-layer {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.3);
+  content: "";
+  z-index: 0;
+}
+#menu-toggle {
+  display: none;
+}
+label.menu-toggle {
+  display: block;
+  position: relative;
+  top: 20px;
+  left: 20px;
+  width: 23px;
+  height: 18px;
+  background: none;
+}
+@media (max-width: 768px) {
+  main {
+    margin-left: 0;
+  }
+  label.menu-toggle {
+    background: url("/images/icon-hamburger.png") 0 0 no-repeat;
+    cursor: pointer;
+  }
+  #menu-toggle:checked + main {
+    margin-left: 335px;
+  }
+  #menu-toggle:checked + #sidebar {
+    display: block;
+  }
+}

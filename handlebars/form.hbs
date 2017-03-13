@@ -1,0 +1,53 @@
+<fieldset>
+  <div class="form-row">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" value="{{name}}">
+  </div>
+  <div class="form-row">
+    <label for="day">Due Date</label>
+    <select name="day" id="day">
+      <option value="">Day</option>
+      {{#times 1 31}}
+      <option value="{{this}}">{{this}}</option>
+      {{/times}}
+    </select>
+    <span> / </span>
+    <select name="month" id="month">
+      <option value="">Month</option>
+      <option value="January">January</option>
+      <option value="February">February</option>
+      <option value="March">March</option>
+      <option value="April">April</option>
+      <option value="May">May</option>
+      <option value="June">June</option>
+      <option value="July">July</option>
+      <option value="August">August</option>
+      <option value="September">September</option>
+      <option value="October">October</option>
+      <option value="November">November</option>
+      <option value="December">December</option>
+    </select>
+    <span> / </span>
+    <select name="year" id="year">
+      <option value ="">Year</option>
+      {{#times 2017 2025}}
+      <option value="{{this}}">{{this}}</option>
+      {{/times}}
+    </select>
+  </div>
+  <div class="form-row">
+    <label for="description">Description</label>
+    <textarea id="description" name="description">{{description}}</textarea>
+  </div>
+  <div class="form-row">
+    <label></label>
+    <input type="submit" value="Save" class="button">
+    <button name="complete"
+      {{#if id}}
+      class="button mark-complete"
+      {{else}}
+      class="button" disabled
+      {{/if}}
+    >Mark As Complete</button>
+  </div>
+</fieldset>

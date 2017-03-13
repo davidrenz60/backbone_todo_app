@@ -1,0 +1,18 @@
+<h2>{{title}}<span class="circle active">{{total}}</span></h2>
+<p>
+  <a href="#" class="new-todo">Add New Todo</a>
+</p>
+<ul>
+  {{#each pending}}
+  <li data-id="{{id}}">
+    <p class="todo">{{name}} - {{formattedDate}}</p>
+    <p class="delete"></p>
+  </li>
+  {{/each}}
+  {{#each completed}}
+  <li data-id="{{id}}">
+    <p class="todo completed">{{name}} - {{formattedDate}}</p>
+    <p class="delete"></p>
+  </li>
+  {{/each}}
+</ul>

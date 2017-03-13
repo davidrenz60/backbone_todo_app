@@ -1,0 +1,28 @@
+<div id="all-todos">
+  <ul>
+    <li class="active" id="view-all">
+      <h3>All Todos</h3>
+      <p class="circle">{{all_total}}</p>
+    </li>
+    {{#each all_dates}}
+    <li class="all-date">
+      <p>{{date}}</p>
+      <p class="circle">{{total}}</p>
+    </li>
+    {{/each}}
+  </ul>
+</div>
+<div id="completed-todos">
+  <ul>
+    <li id="view-completed">
+      <h3>Completed</h3>
+      <p class="circle">{{completed_total}}</p>
+    </li>
+    {{#each completed_dates}}
+    <li class="completed-date">
+      <p>{{date}}</p>
+      <p class="circle">{{total}}</p>
+    </li>
+    {{/each}}
+  </ul>
+</div>
