@@ -25,10 +25,15 @@ var App = {
 
   setStorage: function() {
     localStorage.setItem('todos', JSON.stringify(this.todos.toJSON()));
+    localStorage.setItem('lastId', JSON.stringify(this.lastId));
   },
 
-  getStorage: function() {
+  getTodos: function() {
     return JSON.parse(localStorage.getItem('todos'));
+  },
+
+  getLastId: function() {
+    return JSON.parse(localStorage.getItem('lastId')) || 1;
   },
 
   bindEvents: function() {
@@ -43,7 +48,8 @@ var App = {
   },
 
   init: function() {
-    this.todos = new Todos(this.getStorage());
+    this.lastId = this.getLastId();
+    this.todos = new Todos(this.getTodos());
     this.todosView = new TodosView({ collection: this.todos });
     this.sidebarView = new SidebarView({ collection: this.todos });
     this.bindEvents();

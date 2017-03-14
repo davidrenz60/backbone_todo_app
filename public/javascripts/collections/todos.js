@@ -25,5 +25,5 @@ var Todos = Backbone.Collection.extend({
     });
 
     return result;
-  }
+  },
 });

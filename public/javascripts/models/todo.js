@@ -1,22 +1,17 @@
-var Todo;
+Todo = Backbone.Model.extend({
+  defaults: {
+    completed: false,
+  },
 
-(function() {
-  var id = 1;
+  markCompleted: function() {
+    this.set('completed', true);
+  },
 
-  Todo = Backbone.Model.extend({
-    defaults: {
-      completed: false,
-    },
-
-    markCompleted: function() {
-      this.set('completed', true);
-    },
-
-    initialize: function(options) {
-      if (options.id === undefined) {
-        this.set('id', id);
-        id++;
-      }
+  initialize: function(options) {
+    if (!options || options.id === undefined) {
+      this.set('id', App.lastId);
+      App.lastId++;
     }
-  });
-})();
+  }
+});
+
