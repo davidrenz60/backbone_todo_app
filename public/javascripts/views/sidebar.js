@@ -42,6 +42,7 @@ var SidebarView = Backbone.View.extend({
   },
 
   initialize: function() {
+    this.listenTo(this.collection, 'update change', this.render.bind(this));
     this.render();
   }
 });

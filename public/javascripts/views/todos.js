@@ -11,30 +11,29 @@ var TodosView = Backbone.View.extend({
 
   editTodo: function(e) {
     var id = $(e.currentTarget).closest('li').data('id');
-    App.trigger('edit_todo', id);
+    new EditTodoView({ model: this.collection.get(id) });
     return false;
   },
 
   toggleCompleted: function(e) {
     var $e = $(e.currentTarget);
-    var model = App.todos.get($e.data('id'));
+    var model = this.collection.get($e.data('id'));
     var status = !model.get('completed');
 
     $e.find('.todo').toggleClass('completed', status);
     model.set('completed', status);
-    App.trigger('model_change');
     return false;
   },
 
   newTodo: function(e) {
     e.preventDefault();
-    App.trigger('new_todo');
+    new NewTodoView({ collection: this.collection });
   },
 
   deleteTodo: function(e) {
     e.preventDefault();
     var id = $(e.target).closest('li').data('id');
-    App.todos.remove(id);
+    this.collection.remove(id);
     return false;
   },
 
@@ -75,5 +74,6 @@ var TodosView = Backbone.View.extend({
 
   initialize: function() {
     this.renderAllTodos();
+    this.listenTo(this.collection, 'update change', this.renderAllTodos.bind(this));
   },
 });

@@ -8,7 +8,6 @@ describe('Todos Collection', function() {
   });
 
   it('sorts the collection by date', function() {
-    todos.sort();
     expect(todos.first().get('name')).toBe('Homework');
   });
 

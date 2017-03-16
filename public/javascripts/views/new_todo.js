@@ -19,7 +19,7 @@ var NewTodoView = Backbone.View.extend({
     var attrs = this.process($('form').serializeArray());
     this.close();
 
-    App.todos.add(new Todo(attrs));
+    this.collection.add(new Todo(attrs));
   },
 
   process: function(data) {

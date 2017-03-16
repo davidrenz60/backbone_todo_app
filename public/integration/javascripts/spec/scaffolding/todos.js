@@ -1,12 +1,12 @@
 localStorage.clear();
-App.init();
 
-var todos = new Todos([{
+var todos_scaffold = [{
     name: 'Workout',
     date: new Date('01-01-2018'),
     formattedDate: '01/18',
+
   }, {
-    name: 'Dishes',
+    name: 'Clean House',
     date: new Date('02-01-2017'),
     formattedDate: '02/17',
   }, {
@@ -19,4 +19,9 @@ var todos = new Todos([{
     formattedDate: '02/17',
     completed: true,
   }
-]);
+];
+
+var todos = new Todos();
+todos.reset(todos_scaffold);
+
+
