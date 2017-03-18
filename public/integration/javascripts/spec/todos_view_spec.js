@@ -1,5 +1,16 @@
+jQuery.fx.off = true;
+
 describe('Todos View', function() {
-  var todosView = new TodosView({ collection: todos });
+  var todosView;
+
+  beforeEach(function() {
+    todosView = new TodosView({ collection: todos });
+  });
+
+  afterEach(function() {
+    todosView.remove();
+    $('main').prepend($('<div/>', { id: 'todos'}));
+  });
 
   it('renders all todos on initialize', function() {
     expect($('#todos li').length).toBe(todos.length);
@@ -48,7 +59,6 @@ describe('Todos View', function() {
   });
 
   describe('open new todo view', function() {
-
     beforeEach(function() {
       this.newTodoView = new NewTodoView();
     });

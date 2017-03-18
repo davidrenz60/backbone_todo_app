@@ -1,3 +1,5 @@
+jQuery.fx.off = true;
+
 describe('New Todo View', function() {
   beforeEach(function() {
     this.newTodoView = new NewTodoView({ collection: todos });
@@ -21,7 +23,6 @@ describe('New Todo View', function() {
     $('form').trigger('submit');
 
     expect(this.newTodoView.collection.at(1).get('name')).toBe('walk dog');
-    expect($('#todos li').eq(1).text()).toBe('walk dog - 01/17');
   });
 
   it('it sets No Due Date when a date field is left blank', function() {
@@ -31,6 +32,6 @@ describe('New Todo View', function() {
     $('form').trigger('submit');
 
     expect(this.newTodoView.collection.first().get('name')).toBe('walk dog');
-    expect($('#todos li').first().text()).toBe('walk dog - No Due Date');
+    expect(this.newTodoView.collection.first().get('formattedDate')).toBe('No Due Date');
   });
 });

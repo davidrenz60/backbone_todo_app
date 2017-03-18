@@ -27,7 +27,7 @@ var App = {
     _.extend(this, Backbone.Events);
     this.on('view_by_date', this.viewByDate);
     this.on('view_completed', this.viewCompleted);
-    this.on('view_all', this.updateViews.bind(this));
+    this.on('view_all', this.updateViews.bind(this));  // check if bind is necessary
     $(window).on('unload', this.setStorage.bind(this));
   },
 

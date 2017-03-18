@@ -8,7 +8,6 @@ var EditTodoView = NewTodoView.extend({
   markComplete: function(e) {
     e.preventDefault();
     this.model.markCompleted();
-    App.trigger('model_change');
     this.close();
   },
 
@@ -16,7 +15,6 @@ var EditTodoView = NewTodoView.extend({
     e.preventDefault();
     var attrs = this.process($('form').serializeArray());
     this.model.set(attrs);
-    App.trigger('model_change');
     this.close();
   },
 
